@@ -1,9 +1,9 @@
 #!/bin/sh
 
-cd "${0%"/"*}" #sets relative path
+#cd "${0%"/"*}" #sets relative path
 
 echo $(date '+%a %d.%m.%+4Y %I:%M %p %Z') > /tmp/curTime.tmp
-nohup ./dwmbar.sh > /dev/null & # start dwmbar.sh script
+nohup ~/.scripts/dwmbar.sh > /dev/null & # start dwmbar.sh script
 while :
 do
   sleep $((60 - $(date +%S) )) && # sleep untill next full min
