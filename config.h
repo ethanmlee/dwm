@@ -130,14 +130,14 @@ static Key keys[] = {
 
 	{ MODKEY|ShiftMask,             XK_Delete, quit,                {0} },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,               SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;~/.dwm/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;~/.dwm/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;~/.dwm/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;~/.scripts/refreshbar.sh") },
 	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
 	{ MODKEY,                       XK_Print,                spawn, SHCMD("cd ~/scrot && scrot") },
 	{ MODKEY|ShiftMask,             XK_Print,                spawn, SHCMD("cd ~/scrot && scrot -s") },
-	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.dwm/lock.sh & systemctl suspend") },
-	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.dwm/lock.sh") },
+	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
+	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
 
