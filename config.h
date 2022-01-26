@@ -117,6 +117,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_n,      togglescratch,  {.ui = 4 } }, /* nmtui */
+        { MODKEY|ShiftMask,             XK_n,      spawn,               SHCMD("arandr") },
+        { MODKEY,                       XK_w,      spawn,               SHCMD("$BROWSER") },
+        { MODKEY|ShiftMask,             XK_w,      spawn,               SHCMD("$PWBROWSER") },
+        { MODKEY,                       XK_e,      spawn,               SHCMD("thunderbird") },
+        { MODKEY,                       XK_v,      spawn,               SHCMD("vscode") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -139,13 +144,6 @@ static Key keys[] = {
 	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
 	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
-
-
-	{ MODKEY,                       XK_w,      spawn,               SHCMD("$BROWSER") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,               SHCMD("$PWBROWSER") },
-	{ MODKEY|ShiftMask,             XK_n,      spawn,               SHCMD("arandr") },
-	{ MODKEY,                       XK_e,      spawn,               SHCMD("thunderbird") },
-	{ MODKEY,                       XK_v,      spawn,               SHCMD("vscode") },
 };
 
 /* button definitions */
