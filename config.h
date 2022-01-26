@@ -117,11 +117,23 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_n,      togglescratch,  {.ui = 4 } }, /* nmtui */
-        { MODKEY|ShiftMask,             XK_n,      spawn,               SHCMD("arandr") },
-        { MODKEY,                       XK_w,      spawn,               SHCMD("$BROWSER") },
-        { MODKEY|ShiftMask,             XK_w,      spawn,               SHCMD("$PWBROWSER") },
-        { MODKEY,                       XK_e,      spawn,               SHCMD("thunderbird") },
-        { MODKEY,                       XK_v,      spawn,               SHCMD("vscode") },
+        { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },
+        { MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+        { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
+        { MODKEY,                       XK_e,      spawn,          SHCMD("thunderbird") },
+        { MODKEY,                       XK_v,      spawn,          SHCMD("vscode") },
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot") },
+	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot -s") },
+	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
+	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
+	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
+	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
+
+	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -131,19 +143,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-
-
-	{ MODKEY|ShiftMask,             XK_Delete, quit,                {0} },
-	{ MODKEY|ShiftMask,             XK_Delete, spawn,               SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;~/.scripts/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;~/.scripts/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;~/.scripts/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
-	{ MODKEY,                       XK_Print,                spawn, SHCMD("cd ~/scrot && scrot") },
-	{ MODKEY|ShiftMask,             XK_Print,                spawn, SHCMD("cd ~/scrot && scrot -s") },
-	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
-	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
-	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 };
 
 /* button definitions */
