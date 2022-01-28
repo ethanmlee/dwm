@@ -131,7 +131,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
 	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
 	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
-	{ 0,                            XF86XK_Display,          spawn, SHCMD("~/.scripts/lock.sh") },
+	{ 0,                            XF86XK_Display,          spawn, SHCMD("~/.scripts/lidtog.sh") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
