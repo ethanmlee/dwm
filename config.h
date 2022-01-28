@@ -89,21 +89,21 @@ static const char *termcmd[]    = { TERM, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_q,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -113,8 +113,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
-	{ MODKEY,                       XK_y,      togglescratch,  {.ui = 1 } }, /* keepassxc */
-	{ MODKEY,                       XK_u,      togglescratch,  {.ui = 2 } }, /* bitwarden */
+	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 1 } }, /* keepassxc */
+	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_n,      togglescratch,  {.ui = 4 } }, /* nmtui */
         { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },
@@ -131,6 +131,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
 	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
 	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
+	{ 0,                            XF86XK_Display,          spawn, SHCMD("~/.scripts/lock.sh") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
