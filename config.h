@@ -29,6 +29,7 @@ const char *spcmd2[] = {"keepassxc", NULL };
 const char *spcmd3[] = {"bitwarden", NULL };
 const char *spcmd4[] = {"plexamp", NULL };
 const char *spcmd5[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "nmtui", "-e", "nmtui", NULL };
+const char *spcmd6[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "calc", "-e", "calc", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -36,6 +37,7 @@ static Sp scratchpads[] = {
 	{"bitwarden",   spcmd3},
 	{"plexamp",     spcmd4},
 	{"nmtui",       spcmd5},
+	{"calc",        spcmd6},
 };
 
 /* tagging */
@@ -55,7 +57,8 @@ static const Rule rules[] = {
 	{ NULL,    "keepassxc", NULL,           SPTAG(1),  1,           -1 },
 	{ NULL,    "bitwarden", NULL,           SPTAG(2),  1,           -1 },
 	{ NULL,    "plexamp",   NULL,           SPTAG(3),  1,           -1 },
-	{ NULL,    "nmtui",     NULL,           SPTAG(4),  1,           -1 }
+	{ NULL,    "nmtui",     NULL,           SPTAG(4),  1,           -1 },
+	{ NULL,    "calc",      NULL,           SPTAG(5),  1,           -1 }
 };
 
 /* layout(s) */
@@ -117,6 +120,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_n,      togglescratch,  {.ui = 4 } }, /* nmtui */
+	{ MODKEY|ShiftMask,             XK_e,      togglescratch,  {.ui = 5 } }, /* calc */
         { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },
         { MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
         { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
@@ -132,6 +136,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
 	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
 	{ 0,                            XF86XK_Display,          spawn, SHCMD("~/.scripts/lidtog.sh") },
+        { ShiftMask,                    XF86XK_Display,          spawn, SHCMD("autorandr --change") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
