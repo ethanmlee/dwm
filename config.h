@@ -118,8 +118,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 4 } }, /* calc */
-        { MODKEY,                       XK_n,      spawn,          SHCMD("urxvt -tn rxvt-unicode -name nmtui -e nmtui") },
-        { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },	
+        { MODKEY,                       XK_n,      spawn,          SHCMD("kill -44 $(pidof nmtui) & urxvt -tn rxvt-unicode -name nmtui -e nmtui") },
+        { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
         { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
         { MODKEY,                       XK_e,      spawn,          SHCMD("thunderbird") },
@@ -128,13 +128,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot") },
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot -s") },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;~/.scripts/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;~/.scripts/refreshbar.sh") },
-	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;~/.scripts/refreshbar.sh") },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5;refreshbar.sh") },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5;refreshbar.sh") },
+	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t;refreshbar.sh") },
 	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
-	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("~/.scripts/lock.sh & systemctl suspend") },
-	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("~/.scripts/lock.sh") },
-	{ 0,                            XF86XK_Display,          spawn, SHCMD("~/.scripts/lidtog.sh") },
+	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("lock.sh & systemctl suspend") },
+	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("lock.sh") },
+	{ 0,                            XF86XK_Display,          spawn, SHCMD("lidtog.sh") },
         { ShiftMask,                    XF86XK_Display,          spawn, SHCMD("autorandr --change") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
