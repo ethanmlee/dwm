@@ -118,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 4 } }, /* calc */
-        { MODKEY,                       XK_n,      spawn,          SHCMD("urxvt -tn rxvt-unicode -name nmtui -e nmtui" },
+        { MODKEY,                       XK_n,      spawn,          SHCMD("urxvt -tn rxvt-unicode -name nmtui -e nmtui") },
         { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },	
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
         { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
