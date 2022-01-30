@@ -126,6 +126,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
         { MODKEY,                       XK_e,      spawn,          SHCMD("thunderbird") },
         { MODKEY,                       XK_v,      spawn,          SHCMD("vscode") },
+        { MODKEY,                       XK_f,      spawn,          SHCMD("spacefm") },
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot") },
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot -s") },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
