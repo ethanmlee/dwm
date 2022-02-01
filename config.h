@@ -87,11 +87,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray3, "-sb", col_orange, "-sf", col_black, NULL };
 static const char *termcmd[]    = { TERM, NULL };
+static const char *bigtermcmd[] = { TERM, "-fn", "xft:CozetteVector:size=18:antialias=true", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_backslash,spawn,        {.v = bigtermcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -134,7 +136,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
 	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("lock.sh & systemctl suspend") },
 	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("lock.sh") },
-	{ 0,                            XF86XK_Display,          spawn, SHCMD("lidtog.sh") },
+	{ 0,                            XF86XK_Display,          spawn, SHCMD("desktop_mode.sh") },
         { ShiftMask,                    XF86XK_Display,          spawn, SHCMD("autorandr --change") },
 	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
 
