@@ -120,26 +120,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
 	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 4 } }, /* calc */
-        { MODKEY,                       XK_n,      spawn,          SHCMD("kill -44 $(pidof nmtui) & urxvt -tn rxvt-unicode -name nmtui -e nmtui") },
-        { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("arandr") },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
-        { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$PWBROWSER") },
-        { MODKEY,                       XK_e,      spawn,          SHCMD("thunderbird") },
-        { MODKEY,                       XK_v,      spawn,          SHCMD("vscode") },
-        { MODKEY,                       XK_f,      spawn,          SHCMD("spacefm") },
-	{ MODKEY,                       XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot") },
-	{ MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("cd ~/pix/scrot && scrot -s") },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -i 5") },
-	{ 0,                            XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer -u; pamixer --allow-boost -d 5") },
-	{ 0,                            XF86XK_AudioMute,        spawn, SHCMD("pamixer -t") },
-	{ 0,                            XF86XK_AudioMicMute,     spawn, SHCMD("pamixer --source alsa_input.pci-0000_00_1b.0.analog-stereo -t") },
-	{ 0,                            XF86XK_Sleep,            spawn, SHCMD("lock.sh & systemctl suspend") },
-	{ 0,                            XF86XK_ScreenSaver,      spawn, SHCMD("lock.sh") },
-	{ 0,                            XF86XK_Display,          spawn, SHCMD("desktop_mode.sh") },
-        { ShiftMask,                    XF86XK_Display,          spawn, SHCMD("autorandr --change") },
-	{ 0,                            XF86XK_Launch1,          spawn, SHCMD("bluetooth toggle") },
-
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
