@@ -118,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
 	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 1 } }, /* keepassxc */
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
-	{ MODKEY,                       XK_p,      togglescratch,  {.ui = 3 } }, /* plexamp */
+	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 3 } }, /* plexamp */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 4 } }, /* calc */
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
