@@ -11,12 +11,12 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "CozetteVector:size=9::antialias=false" };
 static const char dmenufont[]       = "CozetteVector:size=9:antialias=false";
 static const char col_black[]       = "#040404";
-static const char col_gray3[]       = "#a1a1a1";
-static const char col_gray5[]       = "#595959";
+static const char col_gray1[]       = "#a1a1a1";
+static const char col_gray2[]       = "#595959";
 static const char col_orange[]      = "#f59542";
 static const char *colors[][3]      = {
 	/*               fg           bg          border   */
-	[SchemeNorm] = { col_gray3,  col_black,  col_gray5 },
+	[SchemeNorm] = { col_gray1,  col_black,  col_gray2 },
 	[SchemeSel]  = { col_black,  col_orange, col_orange},
 };
 
@@ -25,17 +25,17 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "spterm", NULL };
-const char *spcmd2[] = {"keepassxc", NULL };
-const char *spcmd3[] = {"bitwarden", NULL };
-const char *spcmd4[] = {"plexamp", NULL };
-const char *spcmd5[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "calc", "-e", "calc", NULL };
+const char *spcmd2[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "calc", "-e", "calc", NULL };
+const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd4[] = {"bitwarden", NULL };
+const char *spcmd5[] = {"plexamp", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"keepassxc",   spcmd2},
-	{"bitwarden",   spcmd3},
-	{"plexamp",     spcmd4},
-	{"calc",        spcmd5},
+	{"calc",        spcmd2},
+	{"keepassxc",   spcmd3},
+	{"bitwarden",   spcmd4},
+	{"plexamp",     spcmd5},
 };
 
 /* tagging */
@@ -53,10 +53,10 @@ static const Rule rules[] = {
 	{ NULL,    "nmtui",     NULL,           0,         1,           -1 },
 	{ NULL,    NULL,        "Event Tester", 0,         0,           -1 }, /* xev */
 	{ NULL,    "spterm",    NULL,           SPTAG(0),  1,           -1 },
-	{ NULL,    "keepassxc", NULL,           SPTAG(1),  1,           -1 },
-	{ NULL,    "bitwarden", NULL,           SPTAG(2),  1,           -1 },
-	{ NULL,    "plexamp",   NULL,           SPTAG(3),  1,           -1 },
-	{ NULL,    "calc",      NULL,           SPTAG(4),  1,           -1 }
+	{ NULL,    "calc",      NULL,           SPTAG(1),  1,           -1 },
+	{ NULL,    "keepassxc", NULL,           SPTAG(2),  1,           -1 },
+	{ NULL,    "bitwarden", NULL,           SPTAG(3),  1,           -1 },
+	{ NULL,    "plexamp",   NULL,           SPTAG(4),  1,           -1 }
 };
 
 /* layout(s) */
@@ -102,6 +102,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+	{ MODKEY|ShiftMask,             XK_p,      setcfact,       {.f =  0.00} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -119,10 +122,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
-	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 1 } }, /* keepassxc */
-	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 2 } }, /* bitwarden */
-	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 3 } }, /* plexamp */
-	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 4 } }, /* calc */
+	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 1 } }, /* calc */
+	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 2 } }, /* keepassxc */
+	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 3 } }, /* bitwarden */
+	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 4 } }, /* plexamp */
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
