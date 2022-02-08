@@ -121,13 +121,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
 	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 1 } }, /* calc */
 	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 2 } }, /* keepassxc */
 	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 3 } }, /* bitwarden */
 	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 4 } }, /* plexamp */
-	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(cat /tmp/dwmbarpid.tmp)") },
-	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
