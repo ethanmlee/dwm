@@ -123,7 +123,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("kill -44 $(pgrep -f dwmbar.sh)") },
+	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("xpidkill.sh") },
 	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
 	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 1 } }, /* calc */
 	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 2 } }, /* keepassxc */
