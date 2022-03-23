@@ -90,7 +90,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray1, "-sb", col_orange, "-sf", col_black, NULL };
 static const char *termcmd[]    = { TERM, NULL };
-static const char *bigtermcmd[] = { TERM, "-fn", "xft:CozetteVector:size=18:antialias=true", NULL };
+static const char *bigtermcmd[] = { TERM, "-fn", "xft:Spleen:style=Regular:pixelsize=16", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
