@@ -20,24 +20,6 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_black,  col_orange, col_orange},
 };
 
-typedef struct {
-	const char *name;
-	const void *cmd;
-} Sp;
-const char *spcmd1[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "spterm", NULL };
-const char *spcmd2[] = {"urxvt", "-tn", "rxvt-unicode", "-name", "calc", "-e", "calc", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
-const char *spcmd4[] = {"bitwarden", NULL };
-const char *spcmd5[] = {"plexamp", NULL };
-static Sp scratchpads[] = {
-	/* name          cmd  */
-	{"spterm",      spcmd1},
-	{"calc",        spcmd2},
-	{"keepassxc",   spcmd3},
-	{"bitwarden",   spcmd4},
-	{"plexamp",     spcmd5},
-};
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -52,11 +34,11 @@ static const Rule rules[] = {
 	{ NULL,    "urxvt",     NULL,           0,         0,           -1 },
 	{ NULL,    "nmtui",     NULL,           0,         1,           -1 },
 	{ NULL,    NULL,        "Event Tester", 0,         0,           -1 }, /* xev */
-	{ NULL,    "spterm",    NULL,           SPTAG(0),  1,           -1 },
-	{ NULL,    "calc",      NULL,           SPTAG(1),  1,           -1 },
-	{ NULL,    "keepassxc", NULL,           SPTAG(2),  1,           -1 },
-	{ NULL,    "bitwarden", NULL,           SPTAG(3),  1,           -1 },
-	{ NULL,    "plexamp",   NULL,           SPTAG(4),  1,           -1 }
+	{ NULL,    "spterm",    NULL,           0,         1,           -1 },
+	{ NULL,    "calc",      NULL,           0,         1,           -1 },
+	{ NULL,    "keepassxc", NULL,           0,         1,           -1 },
+	{ NULL,    "bitwarden", NULL,           0,         1,           -1 },
+	{ NULL,    "plexamp",   NULL,           0,         1,           -1 }
 };
 
 /* layout(s) */
@@ -127,11 +109,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Delete, quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          SHCMD("xpidkill.sh") },
-	{ MODKEY,                       XK_s,      togglescratch,  {.ui = 0 } }, /* spterm */
-	{ MODKEY,                       XK_a,      togglescratch,  {.ui = 1 } }, /* calc */
-	{ MODKEY,                       XK_r,      togglescratch,  {.ui = 2 } }, /* keepassxc */
-	{ MODKEY|ShiftMask,             XK_r,      togglescratch,  {.ui = 3 } }, /* bitwarden */
-	{ MODKEY,                       XK_m,      togglescratch,  {.ui = 4 } }, /* plexamp */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
