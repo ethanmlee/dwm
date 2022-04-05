@@ -119,6 +119,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_8,      spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_9,      spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_0,      spawn,          SHCMD("tdrop hide_all") },
+	{ MODKEY,                       XK_0,      setlayout,      {.v = &layouts[3]} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
