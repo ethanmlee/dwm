@@ -8,8 +8,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 15;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:pixelsize=13" };
-static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:pixelsize=13";
+static const char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:size=10" };
+static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
 static const char col_black[]       = "#040404";
 static const char col_gray1[]       = "#a1a1a1";
 static const char col_gray2[]       = "#595959";
