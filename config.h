@@ -12,11 +12,17 @@ static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#eeeeee";
 static const char col_gray[]        = "#696969";
-static const char col_orange[]      = "#f59542";
+static const char col_orange[]      = "#f746fa";
+static const char col_green[]       = "#55fa55";
 static const char *colors[][3]      = {
-	/*               fg           bg          border   */
-	[SchemeNorm] = { col_white,  col_black,   col_gray  },
-	[SchemeSel]  = { col_black,  col_orange,  col_orange},
+	/*                   fg         bg          border   */
+	[SchemeNorm]     = { col_white, col_black,  col_gray  },
+	[SchemeSel]      = { col_black, col_orange, col_orange},
+	[SchemeStatus]   = { col_white, col_black,  "#000000" }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_black, col_orange, "#000000" }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm] = { col_white, col_black,  "#000000" }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_green,  col_black,  "#000000" }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm] = { col_white, col_black,  "#000000" }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
