@@ -2,6 +2,8 @@
 
 #include <X11/XF86keysym.h>
 
+#define SESSION_FILE "/tmp/dwm-session"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 10;       /* snap pixel */
