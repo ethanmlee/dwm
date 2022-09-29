@@ -37,9 +37,7 @@ static const Rule rules[] = {
 	/* class   instance     title           tags mask  isfloating   monitor */
 	{ "Gimp",  NULL,        NULL,           0,         1,           -1 },
 	{ "feh",   NULL,        NULL,           0,         1,           -1 },
-	{ NULL,    "urxvt",     NULL,           0,         0,           -1 },
 	{ NULL,    "nmtui",     NULL,           0,         1,           -1 },
-	{ NULL,    NULL,        "Event Tester", 0,         0,           -1 }, /* xev */
 	{ NULL,    "spterm",    NULL,           0,         1,           -1 },
 	{ NULL,    "calc",      NULL,           0,         1,           -1 },
 	{ NULL,    "keepassxc", NULL,           0,         1,           -1 },
