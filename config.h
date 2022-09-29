@@ -79,7 +79,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_magenta, "-sf", col_black, NULL };
 
 #include "movestack.c"
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key           function        argument */
 	{ MODKEY,                       XK_d,         spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,         togglebar,      {0} },
