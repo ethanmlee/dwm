@@ -111,7 +111,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,    tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Delete,    quit,           {0} },
 	{ MODKEY,                       XK_semicolon, winview,        {0} },
-	{ MODKEY|ShiftMask,             XK_Delete,    spawn,          SHCMD("xpidkill.sh") },
 	{ MODKEY,                       XK_1,         spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_2,         spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_3,         spawn,          SHCMD("tdrop hide_all") },
