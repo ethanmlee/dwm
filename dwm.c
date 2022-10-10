@@ -2004,7 +2004,8 @@ setlayout(const Arg *arg)
 		drawbar(selmon);
 }
 
-void setcfact(const Arg *arg) {
+void
+setcfact(const Arg *arg) {
 	float f;
 	Client *c;
 
