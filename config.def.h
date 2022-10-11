@@ -66,18 +66,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
-	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "D[]",      deck },
 	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
@@ -113,8 +102,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,         resetlayout,    {0} },
 	{ MODKEY|ShiftMask,             XK_j,         movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,         movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_minus,     incrgaps,       {.i = -5 } },
-	{ MODKEY,                       XK_equal,     incrgaps,       {.i = +5 } },
+	{ MODKEY,                       XK_minus,     incrgaps,       {.i = +5 } },
+	{ MODKEY,                       XK_equal,     incrgaps,       {.i = -5 } },
 	{ MODKEY|ShiftMask,             XK_minus,     togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_equal,     defaultgaps,    {0} },
 	{ MODKEY,                       XK_Return,    zoom,           {0} },
@@ -123,7 +112,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_BackSpace, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_BackSpace, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_t,         setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_y,         setlayout,      {.v = &layouts[14]} },
+	{ MODKEY,                       XK_y,         setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_u,         setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_g,         setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,     setlayout,      {0} },
