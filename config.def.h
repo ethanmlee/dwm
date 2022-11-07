@@ -7,30 +7,27 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 20;       /* snap pixel */
-static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 20;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 20;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 20;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:size=10" };
 static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
 static const char col_black[]       = "#000000";
-static const char col_white[]       = "#ffffff";
-static const char col_gray[]        = "#696969";
-static const char col_magenta[]     = "#f746fa";
-static const char col_green[]       = "#55fa55";
-static const char col_cyan[]        = "#46e8fa";
+static const char col_gray[]        = "#444444";
+static const char col_gray2[]       = "#bebbb8";
 static const char *colors[][4]      = {
 	/*                   fg           bg           border       float   */
 	[SchemeNorm]     = { "#000000",   "#000000",   col_gray,    col_gray  },
-	[SchemeSel]      = { "#000000",   "#000000",   col_magenta, col_cyan  },
-	[SchemeStatus]   = { col_gray,    col_black,   "#000000",   "#000000" },
-	[SchemeTagsSel]  = { col_black,   col_gray, "#000000",   "#000000" },
-	[SchemeTagsNorm] = { col_gray,    col_black,   "#000000",   "#000000" },
-	[SchemeInfoSel]  = { col_white,   col_black,   "#000000",   "#000000" },
-	[SchemeInfoNorm] = { col_white,   col_black,   "#000000",   "#000000" },
+	[SchemeSel]      = { "#000000",   "#000000",   col_gray2,   col_gray2 },
+	[SchemeStatus]   = { col_gray2,   col_black,   "#000000",   "#000000" },
+	[SchemeTagsSel]  = { col_black,   col_gray2,   "#000000",   "#000000" },
+	[SchemeTagsNorm] = { col_gray2,   col_black,   "#000000",   "#000000" },
+	[SchemeInfoSel]  = { col_gray2,   col_black,   "#000000",   "#000000" },
+	[SchemeInfoNorm] = { col_gray2,   col_black,   "#000000",   "#000000" },
 };
 
 /* tagging */
@@ -83,7 +80,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_magenta, "-sf", col_black, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray2, "-sb", col_gray2, "-sf", col_black, NULL };
 
 #include "movestack.c"
 static const Key keys[] = {
