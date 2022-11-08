@@ -55,6 +55,12 @@ the statusbar is shown on all monitors when using multiple.
 - warp
 Warp moves the mouse to the senter of your focused window. I use this in conjunction with xbanish. The cursor hides when I am using keybinds to move around and shows up when I move it again right where I need it to be bc of warp.
 
+- layouts.c, cfacts-vanitygaps
+cfacts-vanity gaps is just a vanitygaps patch that has a bunch of layouts that support cfacts and vanity gaps. I also moved all of my other layouts into layouts.c just to make the code a little cleaner despite it just being a mess
+
+- cyclelayouts
+instead of switching to individual layouts manually I can cycle through all of them
+
 tdrop
 -----
 tdrop is a drop down terminal that essentially acts like a wm agnostic scratchpad. It does not have offical support for dwm so there is some stuff in the config.def.h specifically for scratchpads. If you don't use tdrop you can safely remove those lines.
