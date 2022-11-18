@@ -19,15 +19,15 @@ static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10
 static const char col_black[]       = "#000000";
 static const char col_gray[]        = "#444444";
 static const char col_gray2[]       = "#bebbb8";
-static const char *colors[][4]      = {
-	/*                   fg           bg           border       float   */
-	[SchemeNorm]     = { "#000000",   "#000000",   col_gray,    col_gray  },
-	[SchemeSel]      = { "#000000",   "#000000",   col_gray2,   col_gray2 },
-	[SchemeStatus]   = { col_gray2,   col_black,   "#000000",   "#000000" },
-	[SchemeTagsSel]  = { col_black,   col_gray2,   "#000000",   "#000000" },
-	[SchemeTagsNorm] = { col_gray2,   col_black,   "#000000",   "#000000" },
-	[SchemeInfoSel]  = { col_gray2,   col_black,   "#000000",   "#000000" },
-	[SchemeInfoNorm] = { col_gray2,   col_black,   "#000000",   "#000000" },
+static const char *colors[][3]      = {
+	/*                   fg         bg         border   */
+	[SchemeNorm]     = { "#000000", "#000000", col_gray  },
+	[SchemeSel]      = { "#000000", "#000000", col_gray2 },
+	[SchemeStatus]   = { col_gray2, col_black, "#000000" },
+	[SchemeTagsSel]  = { col_black, col_gray2, "#000000" },
+	[SchemeTagsNorm] = { col_gray2, col_black, "#000000" },
+	[SchemeInfoSel]  = { col_gray2, col_black, "#000000" },
+	[SchemeInfoNorm] = { col_gray2, col_black, "#000000" },
 };
 
 /* tagging */
