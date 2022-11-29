@@ -20,9 +20,6 @@ lets you choose where you want new windows to be spawned. I have it so that new 
 - colorbar, status2d
 more customizable colors in status bar. colorbar lets you change the foreground and background color of every statusbar element and status2d lets be set colors in by bar script.
 
-- float-border-color
-sepperate border color for floating windows
-
 - fixborders
 fixes border transparency when using a compositor. This an addon to the alpha patch. I don't use alpha or a compositor anymore but it's nice to have for when I want to play with compositor stuff
 
