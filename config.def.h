@@ -5,12 +5,12 @@
 #define SESSION_FILE "/tmp/dwm-session"
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int snap      = 20;       /* snap pixel */
-static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int snap      = 10;       /* snap pixel */
+static const unsigned int gappih    = 2;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 2;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 2;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 2;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -99,8 +99,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,         resetlayout,    {0} },
 	{ MODKEY|ShiftMask,             XK_j,         movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,         movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_minus,     incrgaps,       {.i = -5 } },
-	{ MODKEY,                       XK_equal,     incrgaps,       {.i = +5 } },
+	{ MODKEY,                       XK_minus,     incrgaps,       {.i = -4 } },
+	{ MODKEY,                       XK_equal,     incrgaps,       {.i = +4 } },
 	{ MODKEY|ShiftMask,             XK_minus,     togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_equal,     defaultgaps,    {0} },
 	{ MODKEY,                       XK_Return,    zoom,           {0} },
