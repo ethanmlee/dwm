@@ -19,7 +19,7 @@ static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10
 static const char col_black[]       = "#000000";
 static const char col_gray[]        = "#444444";
 static const char col_gray2[]       = "#bebbb8";
-static const char col_gray3[]       = "#444444";
+static const char col_gray3[]       = "#666666";
 static const char *colors[][3]      = {
 	/*                   fg         bg         border   */
 	[SchemeNorm]     = { "#000000", "#000000", col_gray  },
