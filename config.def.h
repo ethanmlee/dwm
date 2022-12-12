@@ -5,30 +5,38 @@
 #define SESSION_FILE "/tmp/dwm-session"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int snap      = 10;       /* snap pixel */
-static const unsigned int gappih    = 2;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 2;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 2;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 2;       /* vert outer gap between windows and screen edge */
+static unsigned int borderpx  = 4;        /* border pixel of windows */
+static unsigned int snap      = 20;       /* snap pixel */
+static unsigned int gappih    = 4;       /* horiz inner gap between windows */
+static unsigned int gappiv    = 4;       /* vert inner gap between windows */
+static unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
+static unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:size=10" };
-static const char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
-static const char col_black[]       = "#000000";
-static const char col_gray[]        = "#444444";
-static const char col_gray2[]       = "#bebbb8";
-static const char col_gray3[]       = "#666666";
-static const char *colors[][3]      = {
+static int showbar            = 1;        /* 0 means no bar */
+static int topbar             = 1;        /* 0 means bottom bar */
+static char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:size=10" };
+static char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
+static char normbordercol[]   = "#444444";
+static char selbordercol[]    = "#bebbb8";
+static char statusfgcol[]     = "#666666";
+static char statusbgcol[]     = "#000000";
+static char tagsselfgcol[]    = "#000000";
+static char tagsselbgcol[]    = "#bebbb8";
+static char tagsnormfgcol[]   = "#666666";
+static char tagsnormbgcol[]   = "#000000";
+static char infoselfgcol[]    = "#000000";
+static char infoselbgcol[]    = "#bebbb8";
+static char infonormfgcol[]   = "#bebbb8";
+static char infonormbgcol[]   = "#000000";
+static char *colors[][3]      = {
 	/*                   fg         bg         border   */
-	[SchemeNorm]     = { "#000000", "#000000", col_gray  },
-	[SchemeSel]      = { "#000000", "#000000", col_gray2 },
-	[SchemeStatus]   = { col_gray3, col_black, "#000000" },
-	[SchemeTagsSel]  = { col_black, col_gray2, "#000000" },
-	[SchemeTagsNorm] = { col_gray3, col_black, "#000000" },
-	[SchemeInfoSel]  = { col_gray2, col_black, "#000000" },
-	[SchemeInfoNorm] = { col_gray2, col_black, "#000000" },
+	[SchemeNorm]     = { "#000000", "#000000", normbordercol },
+	[SchemeSel]      = { "#000000", "#000000", selbordercol },
+	[SchemeStatus]   = { statusfgcol, statusbgcol, "#000000" },
+	[SchemeTagsSel]  = { tagsselfgcol, tagsselbgcol, "#000000" },
+	[SchemeTagsNorm] = { tagsnormfgcol, tagsnormbgcol, "#000000" },
+	[SchemeInfoSel]  = { infoselfgcol, infoselbgcol, "#000000" },
+	[SchemeInfoNorm] = { infonormfgcol, infonormbgcol, "#000000" },
 };
 
 /* tagging */
@@ -51,10 +59,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int attachdirection = 4;/* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
+static float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static int nmaster     = 1;    /* number of clients in master area */
+static int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static int attachdirection = 4;/* 0 default, 1 above, 2 aside, 3 below, 4 bottom, 5 top */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
@@ -62,9 +70,10 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
+	{ "TTT",      bstack },
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
-	{ "TTT",      bstack },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
@@ -81,7 +90,44 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_gray2, "-sb", col_gray2, "-sf", col_black, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcol, "-nf", normfgcol, "-sb", tagsselbgcol, "-sf", tagsselfgcol, NULL };
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+       { "borderpx",           INTEGER, &borderpx },
+       { "snap",               INTEGER, &snap },
+       { "gappih",             INTEGER, &gappih },
+       { "gappiv",             INTEGER, &gappiv },
+       { "gappoh",             INTEGER, &gappoh },
+       { "gappov",             INTEGER, &gappov },
+       { "smartgaps",          INTEGER, &smartgaps },
+       { "showbar",            INTEGER, &showbar },
+       { "topbar",             INTEGER, &topbar },
+       { "font",               STRING,  &font },
+       { "dmenufont",          STRING,  &dmenufont },
+
+       { "normbordercol",      STRING,  &normbordercol },
+       { "selbordercol",       STRING,  &selbordercol },
+       { "statusfgcol",        STRING,  &statusfgcol },
+       { "statusbgcol",        STRING,  &statusbgcol },
+       { "tagsselfgcol",       STRING,  &tagsselfgcol },
+       { "tagsselbgcol",       STRING,  &tagsselbgcol },
+       { "tagsnormfgcol",      STRING,  &tagsnormfgcol },
+       { "tagsnormbgcol",      STRING,  &tagsnormbgcol },
+       { "infoselfgcol",       STRING,  &infoselfgcol },
+       { "infoselbgcol",       STRING,  &infoselbgcol },
+       { "infonormfgcol",      STRING,  &infonormfgcol },
+       { "infonormbgcol",      STRING,  &infonormbgcol },
+
+       { "mfact",              FLOAT,   &mfact },
+       { "nmaster",            INTEGER, &nmaster },
+       { "resizehints",        INTEGER, &resizehints },
+       { "attachdirection",    INTEGER, &attachdirection },
+};
+
+
 
 #include "movestack.c"
 static const Key keys[] = {
@@ -110,9 +156,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_BackSpace, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_BackSpace, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_t,         setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_y,         setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_u,         setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_g,         setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_t,         setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_y,         setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_y,         setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,         setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,     setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,     togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_s,         togglesticky,   {0} },
@@ -134,7 +181,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,         spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_0,         view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,         tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_0,         setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_0,         setlayout,      {.v = &layouts[3]} },
 	TAGKEYS(                        XK_1,                         0)
 	TAGKEYS(                        XK_2,                         1)
 	TAGKEYS(                        XK_3,                         2)
