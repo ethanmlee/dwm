@@ -11,11 +11,12 @@ static unsigned int gappih    = 4;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 4;       /* vert inner gap between windows */
 static unsigned int gappoh    = 4;       /* horiz outer gap between windows and screen edge */
 static unsigned int gappov    = 4;       /* vert outer gap between windows and screen edge */
-static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static       int smartgaps    = 1;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "Hack Nerd Font Mono:style=Regular:size=10" };
+static char font[]            = "Hack Nerd Font Mono:style=Regular:size=10";
 static char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
+static const char *fonts[]    = { font };
 static char normbordercol[]   = "#444444";
 static char selbordercol[]    = "#bebbb8";
 static char statusfgcol[]     = "#666666";
@@ -24,18 +25,18 @@ static char tagsselfgcol[]    = "#000000";
 static char tagsselbgcol[]    = "#bebbb8";
 static char tagsnormfgcol[]   = "#666666";
 static char tagsnormbgcol[]   = "#000000";
-static char infoselfgcol[]    = "#000000";
-static char infoselbgcol[]    = "#bebbb8";
-static char infonormfgcol[]   = "#bebbb8";
+static char infoselfgcol[]    = "#bebbb8";
+static char infoselbgcol[]    = "#000000";
+static char infonormfgcol[]   = "#666666";
 static char infonormbgcol[]   = "#000000";
 static char *colors[][3]      = {
-	/*                   fg         bg         border   */
-	[SchemeNorm]     = { "#000000", "#000000", normbordercol },
-	[SchemeSel]      = { "#000000", "#000000", selbordercol },
-	[SchemeStatus]   = { statusfgcol, statusbgcol, "#000000" },
-	[SchemeTagsSel]  = { tagsselfgcol, tagsselbgcol, "#000000" },
+	/*                   fg             bg             border   */
+	[SchemeNorm]     = { "#000000",     "#000000",     normbordercol },
+	[SchemeSel]      = { "#000000",     "#000000",     selbordercol },
+	[SchemeStatus]   = { statusfgcol,   statusbgcol,   "#000000" },
+	[SchemeTagsSel]  = { tagsselfgcol,  tagsselbgcol,  "#000000" },
 	[SchemeTagsNorm] = { tagsnormfgcol, tagsnormbgcol, "#000000" },
-	[SchemeInfoSel]  = { infoselfgcol, infoselbgcol, "#000000" },
+	[SchemeInfoSel]  = { infoselfgcol,  infoselbgcol,  "#000000" },
 	[SchemeInfoNorm] = { infonormfgcol, infonormbgcol, "#000000" },
 };
 
@@ -90,7 +91,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcol, "-nf", normfgcol, "-sb", tagsselbgcol, "-sf", tagsselfgcol, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", tagsnormbgcol, "-nf", tagsnormfgcol, "-sb", tagsselbgcol, "-sf", tagsselfgcol, NULL };
 
 /*
  * Xresources preferences to load at startup
