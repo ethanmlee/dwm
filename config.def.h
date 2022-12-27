@@ -168,6 +168,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,     tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,    tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Delete,    quit,           {0} },
+	{ MODKEY,                       XK_Delete,    spawn,          SHCMD("xresources.sh") },
 	{ MODKEY,                       XK_semicolon, winview,        {0} },
 	{ MODKEY,                       XK_1,         spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_2,         spawn,          SHCMD("tdrop hide_all") },
