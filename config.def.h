@@ -13,6 +13,10 @@ static unsigned int gappov    = 4;       /* vert outer gap between windows and s
 static       int smartgaps    = 1;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
+static int usealtbar          = 0;        /* 1 means use non-dwm status bar */
+static char *altbarclass      = "Polybar"; /* Alternate bar class name */
+static char *alttrayname      = "tray";    /* Polybar tray instance name */
+static char *altbarcmd        = "/usr/bin/polybar"; /* Alternate bar launch command */
 static char font[]            = "Hack Nerd Font Mono:style=Regular:size=10";
 static char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
 static const char *fonts[]    = { font };
