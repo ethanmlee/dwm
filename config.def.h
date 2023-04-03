@@ -16,7 +16,7 @@ static int topbar             = 1;        /* 0 means bottom bar */
 static int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static char *alttrayname      = "tray";    /* Polybar tray instance name */
-static char *altbarcmd        = "$HOME/.scripts/bar.sh"; /* Alternate bar launch command */
+static char *altbarcmd        = "$HOME/.scripts/polybar.sh"; /* Alternate bar launch command */
 static char font[]            = "Hack Nerd Font Mono:style=Regular:size=10";
 static char dmenufont[]       = "Hack Nerd Font Mono:style=Regular:size=10";
 static const char *fonts[]    = { font };
