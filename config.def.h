@@ -52,7 +52,6 @@ static const Rule rules[] = {
 	 */
 	/* class   instance     title           tags mask  isfloating   monitor */
 	{ "Gimp",  NULL,        NULL,           0,         1,           -1 },
-	{ "feh",   NULL,        NULL,           0,         1,           -1 },
 	{ NULL,    "nmtui",     NULL,           0,         1,           -1 },
 	{ NULL,    "spterm",    NULL,           0,         1,           -1 },
 	{ NULL,    "calc",      NULL,           0,         1,           -1 },
