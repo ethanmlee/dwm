@@ -73,9 +73,9 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "TTT",      bstack },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "HHH",      grid },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
@@ -161,8 +161,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,         setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_t,         setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_y,         setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,             XK_y,         setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_u,         setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_u,         setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_u,         setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,     setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,     togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_s,         togglesticky,   {0} },
@@ -185,7 +185,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,         spawn,          SHCMD("tdrop hide_all") },
 	{ MODKEY,                       XK_0,         view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,         tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_0,         setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_0,         setlayout,      {.v = &layouts[4]} },
 	TAGKEYS(                        XK_1,                         0)
 	TAGKEYS(                        XK_2,                         1)
 	TAGKEYS(                        XK_3,                         2)
