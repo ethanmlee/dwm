@@ -25,6 +25,9 @@ config.h:
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
+dwm-msg: dwm-msg.o
+	${CC} -o $@ $< ${LDFLAGS}
+
 clean:
 	rm -f dwm dwm-msg ${OBJ} config.h dwm-${VERSION}.tar.gz
 
