@@ -42,15 +42,16 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
-	 */
-	/* class    instance    title  tags mask  isfloating   monitor */
-	{ "Gimp",   NULL,       NULL,  0,         1,           -1 },
-	{ NULL,    "nmtui",     NULL,  0,         1,           -1 },
-	{ NULL,    "spterm",    NULL,  0,         1,           -1 },
-	{ NULL,    "calc",      NULL,  0,         1,           -1 },
-	{ NULL,    "keepassxc", NULL,  0,         1,           -1 },
-	{ NULL,    "bitwarden", NULL,  0,         1,           -1 },
-	{ NULL,    "plexamp",   NULL,  0,         1,           -1 }
+	 */  
+	/* class    instance    title                 tags mask  isfloating   monitor */
+	{ "Gimp",   NULL,       NULL,                 0,         1,           -1 },
+	{ NULL,    "nmtui",     NULL,                 0,         1,           -1 },
+	{ NULL,    "spterm",    NULL,                 0,         1,           -1 },
+	{ NULL,    "calc",      NULL,                 0,         1,           -1 },
+	{ NULL,    "keepassxc", NULL,                 0,         1,           -1 },
+	{ NULL,    "bitwarden", NULL,                 0,         1,           -1 },
+	{ NULL,    "plexamp",   NULL,                 0,         1,           -1 },
+	{ NULL,    NULL,        "Picture-in-Picture", 0,         1,           -1 }
 };
 
 /* layout(s) */
