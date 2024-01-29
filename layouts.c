@@ -278,69 +278,68 @@ monocle(Monitor *m)
 }
 
 /*
- * Grid layout
+ * Grid layout NO GAPS
  * https://dwm.suckless.org/patches/horizgrid/
  */
 void
-grid(Monitor *m) {
-	Client *c;
-	unsigned int n, i;
+grid(Monitor *m)
+{
+	unsigned int i, n;
+	int cx, cy, cw, ch, cc, cr, chrest, cwrest, cols, rows;
 	int oh, ov, ih, iv;
-	int mx = 0, my = 0, mh = 0, mw = 0;
-	int sx = 0, sy = 0, sh = 0, sw = 0;
-	int ntop, nbottom = 1;
-	float mfacts = 0, sfacts = 0;
-	int mrest, srest, mtotal = 0, stotal = 0;
+	Client *c;
 
-	/* Count windows */
 	getgaps(m, &oh, &ov, &ih, &iv, &n);
-	if (n == 0)
-		return;
 
-	if (n <= 2)
-		ntop = n;
-	else {
-		ntop = n / 2;
-		nbottom = n - ntop;
+	/* grid dimensions */
+	for (rows = 0; rows <= n/2; rows++)
+		if (rows*rows >= n)
+			break;
+	cols = (rows && (rows - 1) * rows >= n) ? rows - 1 : rows;
+
+	/* window geoms (cell height/width) */
+	ch = (m->wh - 2*oh - ih * (rows - 1)) / (rows ? rows : 1);
+	cw = (m->ww - 2*ov - iv * (cols - 1)) / (cols ? cols : 1);
+	chrest = (m->wh - 2*oh - ih * (rows - 1)) - ch * rows;
+	cwrest = (m->ww - 2*ov - iv * (cols - 1)) - cw * cols;
+	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++) {
+		cc = i / rows;
+		cr = i % rows;
+		cx = m->wx + ov + cc * (cw + iv) + MIN(cc, cwrest);
+		cy = m->wy + oh + cr * (ch + ih) + MIN(cr, chrest);
+		resize(c, cx, cy, cw + (cc < cwrest ? 1 : 0) - 2*c->bw, ch + (cr < chrest ? 1 : 0) - 2*c->bw, False);
 	}
-	sx = mx = m->wx + ov;
-	sy = my = m->wy + oh;
-	sh = mh = m->wh - 2*oh;
-	sw = mw = m->ww - 2*ov;
-
-	if (n > ntop) {
-		sh = (mh - ih) / 2;
-		mh = mh - ih - sh;
-		sy = my + mh + ih;
-		mw = m->ww - 2*ov - iv * (ntop - 1);
-		sw = m->ww - 2*ov - iv * (nbottom - 1);
-	}
-
-	/* calculate facts */
-	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-		if (i < ntop)
-			mfacts += c->cfact;
-		else
-			sfacts += c->cfact;
-
-	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-		if (i < ntop)
-			mtotal += mh * (c->cfact / mfacts);
-		else
-			stotal += sw * (c->cfact / sfacts);
-
-	mrest = mh - mtotal;
-	srest = sw - stotal;
-
-	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-		if (i < ntop) {
-			resize(c, mx, my, mw * (c->cfact / mfacts) + (i < mrest ? 1 : 0) - (2*c->bw), mh - (2*c->bw), 0);
-			mx += WIDTH(c) + iv;
-		} else {
-			resize(c, sx, sy, sw * (c->cfact / sfacts) + ((i - ntop) < srest ? 1 : 0) - (2*c->bw), sh - (2*c->bw), 0);
-			sx += WIDTH(c) + iv;
-		}
 }
+
+
+
+
+	unsigned int i, n, cx, cy, cw, ch, aw, ah, cols, rows;
+	Client *c;
+
+	for(n = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next))
+		n++;
+
+	/* grid dimensions */
+	for(rows = 0; rows <= n/2; rows++)
+		if(rows*rows >= n)
+			break;
+	cols = (rows && (rows - 1) * rows >= n) ? rows - 1 : rows;
+
+	/* window geoms (cell height/width) */
+	ch = m->wh / (rows ? rows : 1);
+	cw = m->ww / (cols ? cols : 1);
+	for(i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next)) {
+		cx = m->wx + (i / rows) * cw;
+		cy = m->wy + (i % rows) * ch;
+		/* adjust height/width of last row/column's windows */
+		ah = ((i + 1) % rows == 0) ? m->wh - ch * rows : 0;
+		aw = (i >= rows * (cols - 1)) ? m->ww - cw * cols : 0;
+		resize(c, cx, cy, cw - 2 * c->bw + aw, ch - 2 * c->bw + ah, False);
+		i++;
+	}
+}
+
 
 /*
  * Default tile layout + gaps
