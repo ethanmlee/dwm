@@ -1538,28 +1538,8 @@ recttomon(int x, int y, int w, int h)
 void
 resize(Client *c, int x, int y, int w, int h, int interact)
 {
-    Monitor *m = c->mon;
-
-    if (applysizehints(c, &x, &y, &w, &h, interact)) {
-        // Snap to left edge
-        if (abs(x - m->wx) < snap) {
-            x = m->wx + gappoh;
-        }
-        // Snap to right edge
-        if (abs((x + w) - (m->wx + m->ww)) < snap) {
-            x = m->wx + m->ww - w - gappoh;
-        }
-        // Snap to top edge
-        if (abs(y - m->wy) < snap) {
-            y = m->wy + gappov;
-        }
-        // Snap to bottom edge
-        if (abs((y + h) - (m->wy + m->wh)) < snap) {
-            y = m->wy + m->wh - h - gappov;
-        }
-
-        resizeclient(c, x, y, w, h);
-    }
+	if (applysizehints(c, &x, &y, &w, &h, interact))
+		resizeclient(c, x, y, w, h);
 }
 
 void
