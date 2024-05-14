@@ -1546,16 +1546,16 @@ resize(Client *c, int x, int y, int w, int h, int interact)
             x = m->wx + gappoh;
         }
         // Snap to right edge
-        if (abs((x + w + 2 * c->bw) - (m->wx + m->ww)) < snap) {
-            x = m->wx + m->ww - w - 2 * c->bw - gappoh;
+        if (abs((x + w) - (m->wx + m->ww)) < snap) {
+            x = m->wx + m->ww - w - gappoh;
         }
         // Snap to top edge
         if (abs(y - m->wy) < snap) {
             y = m->wy + gappov;
         }
         // Snap to bottom edge
-        if (abs((y + h + 2 * c->bw) - (m->wy + m->wh)) < snap) {
-            y = m->wy + m->wh - h - 2 * c->bw - gappov;
+        if (abs((y + h) - (m->wy + m->wh)) < snap) {
+            y = m->wy + m->wh - h - gappov;
         }
 
         resizeclient(c, x, y, w, h);
